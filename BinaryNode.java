@@ -1,6 +1,8 @@
+import javax.xml.crypto.Data;
+
 class BinaryNode<T>
 {
-   private T data;
+   private T  data;
    private BinaryNode<T> leftChild;  // Reference to left child
    private BinaryNode<T> rightChild; // Reference to right child
 
@@ -106,6 +108,13 @@ class BinaryNode<T>
     * prints (using post-order traversal) all nodes of the subtree rooted at "this" node */
    public void postorderTraverse_binaryNodeMethod()
    {
+      if(data != null){
+         if(leftChild != null)
+            leftChild.postorderTraverse_binaryNodeMethod();
+         if(rightChild != null)
+            rightChild.postorderTraverse_binaryNodeMethod();
+         System.out.println(data);
+     }
    }
    
    /**-------------------------------------------------------------------- 
