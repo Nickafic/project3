@@ -131,11 +131,11 @@ class BinaryNode<T>
       {
          if (leftChild != null)
          {
-            heightLeft = leftChild.getHeight_BinaryNodeMethod();
+            heightLeft = leftChild.getHeight_binaryNodeMethod();
          }
          if (rightChild != null)
          {
-            heightRight= rightChild.getHeight_BinaryNodeMethod();
+            heightRight= rightChild.getHeight_binaryNodeMethod();
          }
          height = 1 +  Math.max(heightLeft,heightRight);
       }

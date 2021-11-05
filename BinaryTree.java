@@ -102,7 +102,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
       if(node != null){
          postorderTraverse(node.getLeftChild());
          postorderTraverse(node.getRightChild());
-         System.out.print(node.getData());
+         System.out.println(node.getData());
       }
    }
  
@@ -144,7 +144,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    @return  The height of the "whole" tree. */
    public int getHeight_callBinaryNodeMethod()
    {
-	   return root.getHeight_BinaryNodeMethod();
+	   return root.getHeight_binaryNodeMethod();
    } // end getHeight_callBinaryNodeMethod
 
    /** -------------------------------------------------------------------- */
