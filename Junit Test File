@@ -1,0 +1,57 @@
+package outtest;
+
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.mockito.*;
+
+public class BinaryTreeTest {
+	public static void createTree1(BinaryTree<String> tree)
+	{ 
+		// Leaves
+		BinaryTree<String> dTree = new BinaryTree<>("D");
+		BinaryTree<String> eTree = new BinaryTree<>("E");
+		BinaryTree<String> gTree = new BinaryTree<>("G");
+
+		// Subtrees:
+		BinaryTree<String> fTree = new BinaryTree<>("F", null, gTree);
+		BinaryTree<String> bTree = new BinaryTree<>("B", dTree, eTree);
+		BinaryTree<String> cTree = new BinaryTree<>("C", fTree, null);
+
+		tree.setTree("A", bTree, cTree);
+	}
+
+	@Test
+	public void testPostorderTraverse() {
+		BinaryTree<String> testTree = spy(BinaryTree.class);
+		createTree1(testTree);
+		doCallRealMethod().when(testTree).postorderTraverse();
+		
+		testTree.postorderTraverse();
+		verify(testTree, times(1)).postorderTraverse();
+	}
+	
+	@Test
+	public void treeHeightTest() {
+		BinaryTree<String> testTree = spy(BinaryTree.class);
+		createTree1(testTree);
+		doCallRealMethod().when(testTree).getHeight_callBinaryNodeMethod();
+		
+		testTree.getHeight_callBinaryNodeMethod();
+		verify(testTree, times(1)).getHeight_callBinaryNodeMethod();
+	}
+	
+	@Test
+	public void testNumOfNodes() {
+		BinaryTree<String> testTree = spy(BinaryTree.class);
+		createTree1(testTree);
+		doCallRealMethod().when(testTree).getNumberOfNodes();
+		
+		testTree.getNumberOfNodes();
+		verify(testTree,times(1)).getNumberOfNodes();
+	}
+	
+
+
+}
